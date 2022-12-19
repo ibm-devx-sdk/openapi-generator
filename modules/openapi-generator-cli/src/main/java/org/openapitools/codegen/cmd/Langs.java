@@ -18,8 +18,9 @@
 package org.openapitools.codegen.cmd;
 
 import ch.lambdaj.collection.LambdaIterable;
-import io.airlift.airline.Command;
 import org.openapitools.codegen.CodegenConfig;
+
+import com.github.rvesse.airline.annotations.Command;
 
 import java.util.Locale;
 

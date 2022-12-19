@@ -1,9 +1,8 @@
 package org.openapitools.codegen.cmd;
 
+import com.github.rvesse.airline.annotations.Command;
+import com.github.rvesse.airline.annotations.Option;
 import com.google.common.base.Objects;
-
-import io.airlift.airline.Command;
-import io.airlift.airline.Option;
 
 import org.openapitools.codegen.CodegenConfig;
 import org.openapitools.codegen.CodegenConfigLoader;

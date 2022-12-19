@@ -17,14 +17,15 @@
 
 package org.openapitools.codegen.cmd;
 
-import io.airlift.airline.Command;
-import io.airlift.airline.Option;
 import org.openapitools.codegen.CliOption;
 import org.openapitools.codegen.CodegenConfig;
 import org.openapitools.codegen.CodegenConfigLoader;
 import org.openapitools.codegen.GeneratorNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.github.rvesse.airline.annotations.Command;
+import com.github.rvesse.airline.annotations.Option;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;

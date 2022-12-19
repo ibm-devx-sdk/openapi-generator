@@ -21,9 +21,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import io.airlift.airline.Command;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.github.rvesse.airline.annotations.Command;
 
 @Command(name = "version", description = "Show version information")
 public class Version implements Runnable {

@@ -19,8 +19,6 @@ package org.openapitools.codegen.cmd;
 
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.core.spi.FilterAttachable;
-import io.airlift.airline.Command;
-import io.airlift.airline.Option;
 import org.openapitools.codegen.ClientOptInput;
 import org.openapitools.codegen.CodegenConstants;
 import org.openapitools.codegen.DefaultGenerator;
@@ -28,6 +26,10 @@ import org.openapitools.codegen.GeneratorNotFoundException;
 import org.openapitools.codegen.config.CodegenConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.github.rvesse.airline.annotations.Command;
+import com.github.rvesse.airline.annotations.Option;
+import com.github.rvesse.airline.annotations.restrictions.Required;
 
 import static org.openapitools.codegen.config.CodegenConfiguratorUtils.*;
 import static org.apache.commons.lang3.StringUtils.isNotEmpty;
@@ -60,8 +62,9 @@ public class Generate implements Runnable {
             description = "where to write the generated files (current dir by default)")
     private String output = "";
 
-    @Option(name = {"-i", "--input-spec"}, title = "spec file", required = true,
+    @Option(name = {"-i", "--input-spec"}, title = "spec file",
             description = "location of the OpenAPI spec, as URL or file (required)")
+    @Required
     private String spec;
 
     @Option(name = {"-t", "--template-dir"}, title = "template directory",

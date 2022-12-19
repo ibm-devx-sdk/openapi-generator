@@ -20,12 +20,13 @@ package org.openapitools.codegen.cmd;
 import static ch.lambdaj.collection.LambdaCollections.with;
 import static com.google.common.base.Joiner.on;
 
+import com.github.rvesse.airline.annotations.Command;
+import com.github.rvesse.airline.annotations.Option;
+import com.github.rvesse.airline.annotations.restrictions.AllowedRawValues;
 import com.google.common.base.CaseFormat;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.samskivert.mustache.Mustache;
-import io.airlift.airline.Command;
-import io.airlift.airline.Option;
 import org.apache.commons.io.FileUtils;
 import org.openapitools.codegen.CodegenConfig;
 import org.openapitools.codegen.DefaultGenerator;
@@ -68,8 +69,8 @@ public class Meta implements Runnable {
     private String targetPackage = "org.openapitools.codegen";
 
     @Option(name = {"-t", "--type"}, title = "type",
-            description = "the type of generator that is created",
-            allowedValues = {"CLIENT", "SERVER", "DOCUMENTATION", "CONFIG", "OTHER"})
+            description = "the type of generator that is created")
+    @AllowedRawValues(allowedValues = {"CLIENT", "SERVER", "DOCUMENTATION", "CONFIG", "OTHER"})
     private String type = "OTHER";
 
     @Override

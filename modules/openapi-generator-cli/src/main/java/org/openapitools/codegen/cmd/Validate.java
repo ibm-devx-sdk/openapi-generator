@@ -17,13 +17,15 @@
 
 package org.openapitools.codegen.cmd;
 
-import io.airlift.airline.Command;
-import io.airlift.airline.Option;
 
 import io.swagger.parser.OpenAPIParser;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.parser.core.models.SwaggerParseResult;
 import org.openapitools.codegen.utils.ModelUtils;
+
+import com.github.rvesse.airline.annotations.Command;
+import com.github.rvesse.airline.annotations.Option;
+import com.github.rvesse.airline.annotations.restrictions.Required;
 
 import java.util.HashSet;
 import java.util.List;
@@ -32,8 +34,9 @@ import java.util.Set;
 @Command(name = "validate", description = "Validate specification")
 public class Validate implements Runnable {
 
-    @Option(name = {"-i", "--input-spec"}, title = "spec file", required = true,
+    @Option(name = {"-i", "--input-spec"}, title = "spec file",
             description = "location of the OpenAPI spec, as URL or file (required)")
+    @Required
     private String spec;
 
     @Option(name = { "--recommend"}, title = "recommend spec improvements")

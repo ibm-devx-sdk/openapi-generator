@@ -17,12 +17,14 @@
 
 package org.openapitools.codegen;
 
-import io.airlift.airline.Cli;
-import io.airlift.airline.Help;
-import io.airlift.airline.ParseArgumentsUnexpectedException;
-import io.airlift.airline.ParseOptionMissingException;
-import io.airlift.airline.ParseOptionMissingValueException;
 import org.openapitools.codegen.cmd.*;
+
+import com.github.rvesse.airline.Cli;
+import com.github.rvesse.airline.builder.CliBuilder;
+import com.github.rvesse.airline.help.Help;
+import com.github.rvesse.airline.parser.errors.ParseArgumentsUnexpectedException;
+import com.github.rvesse.airline.parser.errors.ParseOptionMissingException;
+import com.github.rvesse.airline.parser.errors.ParseOptionMissingValueException;
 
 import java.util.Locale;
 
@@ -38,7 +40,7 @@ public class OpenAPIGenerator {
     public static void main(String[] args) {
         String version = Version.readVersionFromResources();
         @SuppressWarnings("unchecked")
-        Cli.CliBuilder<Runnable> builder =
+        CliBuilder<Runnable> builder =
                 Cli.<Runnable>builder("openapi-generator-cli")
                         .withDescription(
                                 String.format(
@@ -54,8 +56,7 @@ public class OpenAPIGenerator {
                                 Help.class,
                                 ConfigHelp.class,
                                 Validate.class,
-                                Version.class,
-                                CompletionCommand.class
+                                Version.class
                         );
 
         try {
