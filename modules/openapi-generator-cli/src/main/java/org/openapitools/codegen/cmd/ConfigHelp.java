@@ -93,10 +93,7 @@ public class ConfigHelp implements Runnable {
             System.err.println("[error] Check the spelling of the generator's name and try again.");
             System.exit(1);
         } catch (IOException e) {
-            StringWriter sw = new StringWriter();
-            PrintWriter pw = new PrintWriter(sw);
-            e.printStackTrace(pw);
-            System.err.println(sw.toString());
+            System.err.println(e.getMessage());
         }
     }
 
